@@ -1,6 +1,7 @@
 package com.hendisantika.usermanagementapp.controller;
 
 import com.hendisantika.usermanagementapp.constant.AppConstant;
+import com.hendisantika.usermanagementapp.dto.Response;
 import com.hendisantika.usermanagementapp.dto.SearchDTO;
 import com.hendisantika.usermanagementapp.model.RoleNames;
 import com.hendisantika.usermanagementapp.model.User;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -123,5 +125,29 @@ public class UserController {
         dbUser.setLastName(user.getLastName());
         userService.saveUser(dbUser);
         return new Response(302, AppConstant.SUCCESS, "/");
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute User user) {
+        String result = "redirect:/";
+        User dbUser = userService.findUserByEmail(user.getEmail());
+        if (user.getFirstName() == null || user.getFirstName().trim().isEmpty()) {
+            result = "redirect:/addNewUser?error=Enter valid fist name";
+        } else if (user.getLastName() == null || user.getLastName().trim().isEmpty()) {
+            result = "redirect:/addNewUser?error=Enter valid last name";
+        } else if (user.getEmail() == null || user.getEmail().trim().isEmpty()) {
+            result = "redirect:/addNewUser?error=Enter valid email";
+        } else if (user.getPassword() == null || user.getPassword().trim().isEmpty()) {
+            result = "redirect:/addNewUser?error=Enter valid password";
+        } else if (StringUtils.isEmpty(user.getRoleName())) {
+            result = "redirect:/addNewUser?error=Select a valid Role";
+        }
+        if (dbUser == null) {
+            userService.saveUser(user);
+        } else {
+            result = "redirect:/addNewUser?error=User Already Exists!";
+        }
+
+        return result;
     }
 }
