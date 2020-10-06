@@ -163,4 +163,11 @@ public class UserController {
     public Boolean removeAll() {
         return userService.removeAll();
     }
+
+    @GetMapping("/403")
+    public ModelAndView accessDenied() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("403");
+        return modelAndView;
+    }
 }
