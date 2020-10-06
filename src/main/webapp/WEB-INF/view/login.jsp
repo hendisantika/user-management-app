@@ -16,7 +16,7 @@
         <div class="row justify-content-md-center h-100">
             <div class="card-wrapper">
                 <div class="brand">
-                    <img src="resources/images/logo.png">
+                    <img src="resources/images/spring boot.png">
                 </div>
                 <div class="card fat">
                     <div class="card-body">

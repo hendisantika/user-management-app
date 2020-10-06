@@ -10,7 +10,7 @@
 </head>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/">
-        <img src="resources/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        <img src="resources/images/spring boot.png" width="50" height="50" class="d-inline-block align-top" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
