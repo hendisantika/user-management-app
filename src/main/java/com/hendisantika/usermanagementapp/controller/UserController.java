@@ -170,4 +170,11 @@ public class UserController {
         modelAndView.setViewName("403");
         return modelAndView;
     }
+
+    @GetMapping("/error")
+    public ModelAndView error() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error");
+        return modelAndView;
+    }
 }
