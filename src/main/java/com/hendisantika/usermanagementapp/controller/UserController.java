@@ -105,4 +105,10 @@ public class UserController {
         return modelAndView;
     }
 
+    @GetMapping("/addNewUser")
+    public ModelAndView addNewUser() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("create-user");
+        return modelAndView;
+    }
 }
