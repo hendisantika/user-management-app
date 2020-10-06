@@ -69,4 +69,19 @@ public class UserController {
 
         return modelAndView;
     }
+
+
+    @GetMapping("/searchBox")
+    public ModelAndView searchByTerm(@RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+                                     @RequestParam(value = "size", defaultValue = "4", required = false) Integer size,
+                                     @RequestParam(value = "searchTerm", required = false) String searchTerm) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home");
+        Page<User> allUsers = userService.searchByTerm(searchTerm.trim(), PageRequest.of(page, size, Sort.by(
+                "firstName")));
+        modelAndView.addObject("allUsers", allUsers);
+        modelAndView.addObject("maxTraySize", size);
+        modelAndView.addObject("currentPage", page);
+        return modelAndView;
+    }
 }
