@@ -157,4 +157,10 @@ public class UserController {
         userService.removeById(userId);
         return "redirect:/";
     }
+
+    @ResponseBody
+    @GetMapping("/removeAll")
+    public Boolean removeAll() {
+        return userService.removeAll();
+    }
 }
