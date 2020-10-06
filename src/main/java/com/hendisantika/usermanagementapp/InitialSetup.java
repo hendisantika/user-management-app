@@ -1,9 +1,13 @@
 package com.hendisantika.usermanagementapp;
 
+import com.hendisantika.usermanagementapp.model.RoleNames;
+import com.hendisantika.usermanagementapp.model.User;
 import com.hendisantika.usermanagementapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,4 +36,22 @@ public class InitialSetup {
     @Value("${admin.password}")
     private String password;
 
+
+    @PostConstruct
+    public void initData() throws Exception {
+
+        User dbUser = userService.findUserByEmail(emailAddress);
+
+        if (dbUser == null) {
+            User user = new User();
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setEmail(emailAddress);
+            user.setPassword(password);
+            user.setActive(Boolean.TRUE);
+            user.setRoleName(RoleNames.ADMIN.name());
+            userService.saveUser(user);
+        }
+        loadUsers();
+    }
 }
