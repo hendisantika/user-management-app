@@ -84,4 +84,13 @@ public class UserController {
         modelAndView.addObject("currentPage", page);
         return modelAndView;
     }
+
+
+    @GetMapping("/search")
+    public ModelAndView search() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("search");
+        return modelAndView;
+    }
+
 }
