@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -149,5 +150,11 @@ public class UserController {
         }
 
         return result;
+    }
+
+    @GetMapping("/delete/{userId}")
+    public String delete(@PathVariable Long userId) {
+        userService.removeById(userId);
+        return "redirect:/";
     }
 }
