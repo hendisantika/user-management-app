@@ -1,5 +1,6 @@
 package com.hendisantika.usermanagementapp.controller;
 
+import com.hendisantika.usermanagementapp.dto.SearchDTO;
 import com.hendisantika.usermanagementapp.model.RoleNames;
 import com.hendisantika.usermanagementapp.model.User;
 import com.hendisantika.usermanagementapp.service.UserService;
@@ -12,6 +13,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -90,6 +93,15 @@ public class UserController {
     public ModelAndView search() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("search");
+        return modelAndView;
+    }
+
+    @PostMapping("/searchSubmit")
+    public ModelAndView searchSubmit(@ModelAttribute SearchDTO searchDto) {
+        List<User> result = userService.searchBy(searchDto.getSearchKeyword(), searchDto.getCriteria());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("search");
+        modelAndView.addObject("result", result);
         return modelAndView;
     }
 
