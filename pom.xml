@@ -12,7 +12,7 @@
     <artifactId>user-management-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user-management-app</name>
-    <description>User Management System - Create, Update & delete</description>
+    <description>User Management System - Create, Update and delete</description>
 
     <properties>
         <java.version>11</java.version>
