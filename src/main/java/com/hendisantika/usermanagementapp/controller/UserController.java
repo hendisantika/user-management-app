@@ -1,5 +1,6 @@
 package com.hendisantika.usermanagementapp.controller;
 
+import com.hendisantika.usermanagementapp.constant.AppConstant;
 import com.hendisantika.usermanagementapp.dto.SearchDTO;
 import com.hendisantika.usermanagementapp.model.RoleNames;
 import com.hendisantika.usermanagementapp.model.User;
@@ -15,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -110,5 +113,15 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("create-user");
         return modelAndView;
+    }
+
+    @ResponseBody
+    @PostMapping("/save")
+    public Response update(@RequestBody User user) {
+        User dbUser = userService.findById(user.getId());
+        dbUser.setFirstName(user.getFirstName());
+        dbUser.setLastName(user.getLastName());
+        userService.saveUser(dbUser);
+        return new Response(302, AppConstant.SUCCESS, "/");
     }
 }
