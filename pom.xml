@@ -83,6 +83,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <imageName>docker.io/hendisantika/${project.artifactId}:${version}</imageName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
