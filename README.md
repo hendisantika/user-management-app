@@ -31,6 +31,29 @@ for example, want to run app on 9090 port number instead of default(8080)
     username: admin@gmail.com
     password: admin
 
+## Image Screen shot:
+
+Login Page:
+
+![Login](img/login.png "Login Page")
+
+Home Page:
+    
+![Home](img/list-users.png "Home Page")
+
+Search Page:
+
+![Search](img/search.png "Search Page")
+
+Advanced Search Page:    
+
+![Advance Search](img/advancedSearch.png "Advanced Search Page")
+
+Create User Page:
+
+![Create User](img/add-new-user.png "Add New User Page")
+
+
 
 ## Future Project Enhancement notes,
 
