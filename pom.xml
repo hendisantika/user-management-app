@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hendisantika</groupId>
     <artifactId>user-management-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>user-management-app</name>
     <description>User Management System - Create, Update and delete</description>
 
