@@ -98,6 +98,6 @@ public class InitialSetup {
 
         User user11 = new User("Uzumaki", "Naruto",
                 "uzumaki_naruto@konohagakure.co.jp", "123456", RoleNames.ADMIN.name(), Boolean.TRUE);
-        userService.saveUser(user10);
+        userService.saveUser(user11);
     }
 }

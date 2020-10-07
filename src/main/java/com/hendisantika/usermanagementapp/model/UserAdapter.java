@@ -64,11 +64,6 @@ public class UserAdapter implements UserDetails {
     }
 
     @Override
-    public int hashCode() {
-        return user.getId().intValue();
-    }
-
-    @Override
     public boolean equals(Object obj) {
         UserAdapter other = (UserAdapter) obj;
         return user.getEmail().equals(other.user.getEmail());

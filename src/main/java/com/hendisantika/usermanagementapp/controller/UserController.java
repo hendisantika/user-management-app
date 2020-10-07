@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by IntelliJ IDEA.
@@ -153,7 +154,7 @@ public class UserController {
     }
 
     @GetMapping("/delete/{userId}")
-    public String delete(@PathVariable Long userId) {
+    public String delete(@PathVariable UUID userId) {
         userService.removeById(userId);
         return "redirect:/";
     }

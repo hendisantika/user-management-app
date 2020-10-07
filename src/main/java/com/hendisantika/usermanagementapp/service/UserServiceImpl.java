@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by IntelliJ IDEA.
@@ -60,12 +61,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(UUID id) {
         userRepository.deleteById(id);
     }
 
     @Override
-    public User findById(Long id) {
+    public User findById(UUID id) {
         return userRepository.findById(id).get();
     }
 
