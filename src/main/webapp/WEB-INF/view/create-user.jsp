@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="lastName">First Name</label>
+                                <label for="lastName">Last Name</label>
                                 <input id="lastName" type="text" class="form-control" name="lastName" required>
                             </div>
 
