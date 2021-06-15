@@ -20,16 +20,31 @@ for example, want to run app on 9090 port number instead of default(8080)
 
     4.1.1 for example, I want to change my db-user name, then I can do something likewise while I go for start my app,
  mvn clean spring-boot:run -Drun.arguments="--spring.datasource.username=newUserName"
- 
- 
+
 ## 5. To generate .war file we need to clean install our project by following command(Maven should be installed),
+
     Way-1 - mvn clean install
 
     Way-2 - if have eclipse(IDE) then following steps is enough to have packaged app file, (right click on project) -> Run -> Maven install which will generate 1-war file namely "user.management.system-0.0.1-SNAPSHOT.war" under 'target' directory
 
 ## 6. Once the application is started you can access http://localhost:8080/
+
     username: admin@gmail.com
     password: admin
+
+## 7. Run with Docker
+
+    Pull the image
+
+```docker
+docker pull hendisantika/user-management-app:0.0.1
+```
+
+    Run the image/docker container
+
+```docker
+docker run -p 8080:8080 --name user-management hendisantika/user-management-app:0.0.1
+```    
 
 ## Image Screen shot:
 
@@ -38,7 +53,7 @@ Login Page:
 ![Login](img/login.png "Login Page")
 
 Home Page:
-    
+
 ![Home](img/list-users.png "Home Page")
 
 Search Page:
